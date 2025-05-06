@@ -43,7 +43,7 @@ class QuizController extends Controller
         {
             // return $request->all();die;
             $validated = $request->validate([
-                'class_id' => 'required|exists:Classes,id',
+                'class_id' => 'required|exists:classes,id',
                 'subject_id' => 'required|exists:subjects,id',
                 'topic_id' => 'required|exists:topics,id',
                 'quiz_type' => 'required|in:2,4',
