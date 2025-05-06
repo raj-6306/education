@@ -90,6 +90,9 @@ class SubjectController extends Controller
     public function show($classId)
     {
         // Get the subjects and their topics based on class_id
+        if (!session()->has('student_id')) {
+            return redirect('/login')->with('fail', 'Please login first.');
+        }
         $subjects = Subject::where('class_id', $classId)->get();
         $class_name=Classes::where('id',$classId)->value('name');
         $topics = Subject::leftJoin('topics', 'subjects.id', '=', 'topics.subject_id')

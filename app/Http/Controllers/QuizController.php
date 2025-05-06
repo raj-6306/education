@@ -142,6 +142,9 @@ class QuizController extends Controller
 
     public function destroy($id)
     {
+        if (!session()->has('student_id')) {
+            return redirect('/login')->with('fail', 'Please login first.');
+        }
         // Find the quiz by its ID
         $quiz = Quiz::find($id);
 

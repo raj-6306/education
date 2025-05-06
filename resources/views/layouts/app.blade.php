@@ -62,8 +62,8 @@
 <body>
 
   <div class="sidebar">
-    <h2>Dashboard</h2>
     @if(session('role')==0)
+    <h2>Dashboard</h2>
     <a href="{{ route('dashboard') }}">Dashboard</a>
     <a href="{{route('class.index')}}">Classes</a>
     <a href="{{route('learning.index')}}">Learning</a>
@@ -71,6 +71,7 @@
     <a href="{{ route('test.index') }}">Missons</a>
     <a href="{{ route('logout') }}">Logout</a>
     @else
+    <h2>Logical Reasoning</h2>
       <a href="{{ route('dashboard') }}">Dashboard</a>
       <a href="{{ route('test.index') }}">Missons</a>
       <a href="{{ route('logout') }}">Logout</a>

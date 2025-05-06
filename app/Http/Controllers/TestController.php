@@ -31,6 +31,9 @@ class TestController extends Controller
     }
     public function takeQuiz($topicId)
     {
+        if (!session()->has('student_id')) {
+            return redirect('/login')->with('fail', 'Please login first.');
+        }
         $topic = Topic::findOrFail($topicId);
 
         // Assume each question has a related 'options' attribute (array or collection)
@@ -40,6 +43,9 @@ class TestController extends Controller
     }
     public function submitQuiz(Request $request, $topicId)
     {
+        if (!session()->has('student_id')) {
+            return redirect('/login')->with('fail', 'Please login first.');
+        }
         $studentId = session('student_id') ; 
         $answers = $request->input('answers', []);
         $quizIds = $request->input('quiz_id', []); 

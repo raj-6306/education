@@ -113,6 +113,9 @@ class TopicController extends Controller
     public function show($topicId)
     {
         try {
+            if (!session()->has('student_id')) {
+                return redirect('/login')->with('fail', 'Please login first.');
+            }
             $topic = Topic::leftJoin('subjects', 'subjects.id', '=', 'topics.subject_id')
             ->select('topics.*', 'subjects.name as subject_name')
             ->where('topics.id', $topicId)
