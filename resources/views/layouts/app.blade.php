@@ -71,7 +71,7 @@
     <a href="{{route('class.index')}}">Classes</a>
     <a href="{{route('learning.index')}}">Learning</a>
     <a href="{{ route('quiz.index') }}">Quizzes</a>
-    <a href="{{ route('test.index') }}">Missons</a>
+    <a href="{{ route('test.index') }}">Missions</a>
     <a href="{{ route('logout') }}">Logout</a>
     @else
     <h2>TheoremTrack</h2>
