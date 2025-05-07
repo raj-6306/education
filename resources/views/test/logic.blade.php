@@ -1,14 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
 
 @section('content')
-<h1>Welcome {{ session('student_name') ?? 'Guest' }}!</h1>
 @if(session('role')==1)
 <div class="container">
-    <div class="alert alert-primary col-lg-3 col-md-3">
-        <strong>Badges Points:</strong> {{ $totalMarks ?? 0 }}
-    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -24,7 +19,7 @@
         </h1>
         @forelse($classes as $class)
             <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <a href="{{ route('subject.details', $class->id) }}" class="text-decoration-none">
+                <a href="{{ route('logical.details', $class->id) }}" class="text-decoration-none">
                     <div class="card text-center shadow-sm h-100" style="cursor: pointer; background-color: #f7eacc;">
                         <div class="card-body d-flex align-items-center justify-content-center" style="height: 100px;">
                             <span style="font-weight: bold; color: black;">{{ ucfirst($class->name) }}</span>

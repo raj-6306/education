@@ -26,11 +26,12 @@
       border-bottom: 1px solid #555;
       padding-bottom: 10px;
       font-weight: 600;
+      color: black;
     }
 
     .sidebar a {
       display: block;
-      color: white;
+      color: black;
       text-decoration: none;
       margin: 15px 0;
       padding: 8px 10px;
@@ -45,14 +46,16 @@
     .main-content {
       flex-grow: 1;
       padding: 30px;
-      background: #ffffff;
+      /* background: #ffffff; */
+      background: #f9e5b0;
       min-height: 100vh;
     }
 
     .main-content h1 {
       font-size: 26px;
       margin-bottom: 20px;
-      color: #343a40;
+      /* color: #343a40; */
+      color: black;
       font-weight: 600;
     }
   </style>
@@ -71,9 +74,11 @@
     <a href="{{ route('test.index') }}">Missons</a>
     <a href="{{ route('logout') }}">Logout</a>
     @else
-    <h2>Logical Reasoning</h2>
+    <h2>TheoremTrack</h2>
       <a href="{{ route('dashboard') }}">Dashboard</a>
-      <a href="{{ route('test.index') }}">Missons</a>
+      <a href="{{ route('test.index') }}">Missions</a>
+      {{-- <a href="{{ route('logical') }}">Logical Reasoning</a> --}}
+      <a href="{{ route('certificate') }}">Certificate</a>
       <a href="{{ route('logout') }}">Logout</a>
     @endif
     {{-- <a href="{{ route('logout') }}">Logout</a>  --}}

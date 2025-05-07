@@ -67,6 +67,13 @@ Route::get('/topic-view/{id}',[TopicController::class,'show'])->name('topic.view
 Route::get('/testes',[TestController::class,'index'])->name('test.index');
 Route::get('/test-view/{id}',[TestController::class,'takeQuiz'])->name('test.start');
 Route::post('/test-submit/{id}', [TestController::class, 'submitQuiz'])->name('quiz.submit');
+Route::get('/certificate', [TestController::class, 'certificate'])->name('certificate');
+Route::post('/certificate/download', [TestController::class, 'download'])->name('certificate.download');
+Route::get('/logical', [TestController::class, 'logical'])->name('logical');
+Route::get('/all-logical-reasoning/{id}', [TestController::class, 'showlogical'])->name('logical.details');
+
+
+
 
 
 

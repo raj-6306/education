@@ -1963,7 +1963,7 @@ form select {
   padding: 30px 0 40px;
   margin-bottom: 50px;
   background-color: #475d36;
-  background-image: url(images/chalkboard.jpg);
+  background-image: url(images/back.jpg);
   background-attachment: fixed;
   background-position: bottom center;
   box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
@@ -2059,7 +2059,7 @@ form select {
 .main-navigation .menu-item a {
   font-size: 17px;
   font-size: 1.0625rem;
-  color: white;
+  color: black;
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 3px;
@@ -2121,7 +2121,7 @@ form select {
   font-size: 1.125rem;
 }
 .mobile-navigation .menu .current-menu-item a, .mobile-navigation .menu .menu-item:hover a {
-  color: #72664c;
+  color: black;
   background: #f7eacc;
   background: -webkit-linear-gradient(270deg, #f7eacc, #cfbe97);
   background: linear-gradient(180deg, #f7eacc, #cfbe97);
@@ -2174,7 +2174,7 @@ form select {
   }
 }
 .slider .slide-caption .slide-title {
-  color: white;
+  color: black;
   margin-bottom: 0;
   font-family: "Cabin Sketch", "Roboto Slab", georgia, serif;
   font-size: 60px;
@@ -2183,7 +2183,7 @@ form select {
 .slider .slide-caption p {
   font-size: 18px;
   font-size: 1.125rem;
-  color: white;
+  color: black;
   font-weight: 400;
   line-height: 30px;
   margin-bottom: 30px;

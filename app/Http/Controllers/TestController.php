@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\Quiz;
 use App\Models\Topic;
 use App\Models\UserView;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Response;
 
 class TestController extends Controller
 {
@@ -83,5 +87,54 @@ class TestController extends Controller
         ]);
         $feedback = "{$correctCount} Correct, {$incorrectCount} Incorrect";
         return redirect()->route('test.index')->with('success',"Quiz submitted successfully.Result {$feedback}");
+    }
+    public function certificate(){
+        return view('test.certificate');    
+    }
+    public function download(Request $request){
+        // return view('certificates.certificate');
+        $requiredBadges = $request->input('badge_required');
+        $studentId = session('student_id');
+        $studentName = session('student_name');
+        $totalBadges = UserView::where('student_id', $studentId)->sum('marks');
+
+    if ($totalBadges < $requiredBadges) {
+        return back()->with('fail', 'You need at least ' . $requiredBadges . ' badges.');
+    }
+    $remainingBadges = $totalBadges - $requiredBadges;
+    $userViews = UserView::where('student_id', $studentId)->get();
+    $remainingSet = false;
+    foreach ($userViews as $userView) {
+        if (!$remainingSet) {
+            $userView->marks = $remainingBadges;
+            $userView->save();
+            $remainingSet = true;
+        } else {
+            $userView->marks = 0;
+            $userView->save();
+        }
+    }
+    if($requiredBadges==100){
+        $path = public_path('assets/dummy/certificate.jpg');
+    }
+    // $pdf = Pdf::loadView('certificates.certificate', [
+    //     'name' => session('student_name'),
+    //     'badge' => $requiredBadges
+    // ]);
+
+    return response()->download($path, 'certificate.jpg');
+    }
+    public function logical(){
+        $classes=Classes::all();
+        return view('test.logic',['classes'=>$classes]);
+    }
+    public function showlogical($id){
+        $quizzes = Quiz::where('quizzes.class_id', $id)
+        ->leftJoin('subjects', 'subjects.id', '=', 'quizzes.subject_id')
+        ->leftJoin('topics', 'topics.id', '=', 'quizzes.topic_id')
+        ->select('quizzes.*', 'subjects.name as subject_name', 'topics.name as topic_name')
+        ->get();
+
+    return view('test.logical', compact('quizzes'));
     }
 }

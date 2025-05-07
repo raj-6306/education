@@ -19,7 +19,7 @@
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
 		<style>
-			.home-slider .slider {
+	.home-slider .slider {
     position: relative;
     display: flex;
     align-items: center; /* Vertically align items in the center */
@@ -57,8 +57,8 @@
 
 .home-slider .slide-caption .button {
     padding: 10px 20px;
-    background-color: #60794e; /* Example primary color */
-    color: #fff;
+    /* background-color: #60794e; Example primary color */
+    color: black;
     border-radius: 5px;
     text-decoration: none;
 }
@@ -113,7 +113,7 @@
 										explorer of the truth, the master-builder of human happiness</p>
 									<a href="#" class="button primary large">Learn more</a>
 								</div>
-								<img src="{{ url('assets/dummy/book.png') }}" alt="">
+								<img src="{{ url('assets/dummy/slider.jpg') }}" alt="">
 							</li>
 							<li>
 								<div class="slide-caption">
@@ -123,7 +123,7 @@
 										explorer of the truth, the master-builder of human happiness</p>
 									<a href="#" class="button primary large">Learn more</a>
 								</div>
-								<img src="{{ url('assets/dummy/book.png') }}" alt="">
+								<img src="{{ url('assets/dummy/slider1.jpg') }}" alt="">
 							</li>
 							<li>
 								<div class="slide-caption">
@@ -133,7 +133,7 @@
 										explorer of the truth, the master-builder of human happiness</p>
 									<a href="#" class="button primary large">Learn more</a>
 								</div>
-								<img src="{{ url('assets/dummy/book.png') }}" alt="">
+								<img src="{{ url('assets/dummy/slider.jpg') }}" alt="">
 							</li>
 						</ul> <!-- .slides -->
 					</div> <!-- .slider -->
