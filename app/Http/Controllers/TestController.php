@@ -134,7 +134,60 @@ class TestController extends Controller
         ->leftJoin('topics', 'topics.id', '=', 'quizzes.topic_id')
         ->select('quizzes.*', 'subjects.name as subject_name', 'topics.name as topic_name')
         ->get();
-
+        // dd($quizzes);
     return view('test.logical', compact('quizzes'));
+    }
+    public function LogicalStore(Request $request){
+        if (!session()->has('student_id')) {
+            return redirect('/login')->with('fail', 'Please login first.');
+        }
+    
+        $studentId = session('student_id');
+        $answers = $request->input('answers', []);
+        $quizIds = $request->input('quiz_id', []);
+    
+        $totalMarks = 0;
+        $correctCount = 0;
+        $incorrectCount = 0;
+    
+        $topicIds = []; // collect unique topic_ids for all submitted questions
+    
+        foreach ($quizIds as $quizId) {
+            $question = Quiz::find($quizId);
+    
+            if (!$question) continue;
+    
+            $topicIds[] = $question->topic_id; // gather topic IDs
+            $selectedOption = $answers[$quizId] ?? null;
+    
+            if (!$selectedOption) continue;
+    
+            if ($selectedOption === $question->answer) {
+                $totalMarks += (int) $question->marks;
+                $correctCount++;
+            } else {
+                $incorrectCount++;
+            }
+        }
+    
+        $topicIds = array_unique($topicIds);
+    
+        // Store result for each topic (if multiple topics are involved)
+        foreach ($topicIds as $topicId) {
+            UserView::updateOrCreate(
+                ['topic_id' => $topicId, 'student_id' => $studentId],
+                [
+                    'quiz_id' => implode(',', $quizIds),
+                    'marks' => $totalMarks,
+                    'status' => 0,
+                    'updated_at' => now(),
+                ]
+            );
+        }
+    
+        $feedback = "{$correctCount} Correct, {$incorrectCount} Incorrect";
+    
+        return redirect()->route('logical')->with('success', "Quiz submitted successfully. Result: {$feedback}");
+    
     }
 }

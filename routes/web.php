@@ -71,6 +71,8 @@ Route::get('/certificate', [TestController::class, 'certificate'])->name('certif
 Route::post('/certificate/download', [TestController::class, 'download'])->name('certificate.download');
 Route::get('/logical', [TestController::class, 'logical'])->name('logical');
 Route::get('/all-logical-reasoning/{id}', [TestController::class, 'showlogical'])->name('logical.details');
+Route::post('/logical-store', [TestController::class, 'LogicalStore'])->name('Logical.Store');
+
 
 
 

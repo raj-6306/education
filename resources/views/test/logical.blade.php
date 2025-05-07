@@ -2,47 +2,57 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">Available Quizzes</h2>
+    @if($quizzes->isEmpty())
+        <div class="alert alert-warning">No quizzes available.</div>
+    @else
+        {{-- Show Subject and Topic Name --}}
+        <div class="mb-4">
+            {{-- <h3>Subject: <span class="text-primary">{{ $quizzes->first()->subject_name ?? 'N/A' }}</span></h3>
+            <h4>Topic: <span class="text-success">{{ $quizzes->first()->topic_name ?? 'N/A' }}</span></h4> --}}
+        </div>
 
-    @forelse($quizzes as $quiz)
-        <div class="card mb-4">
-            <div class="card-header" style="background-color: #60794e; color: white;">
-                Subject: {{ $quiz->subject_name }} | Topic: {{ $quiz->topic_name }}
-            </div>
-            <div class="card-body" style="background-color: #f7eacc;">
-                <p><strong>Quiz Title:</strong> {{ $quiz->name }}</p>
-                <p><strong>Description:</strong> {{ $quiz->description ?? 'No description provided.' }}</p>
-            
-                @php
-                    $quizQuestions = $questions[$quiz->id] ?? collect();
-                @endphp
-            
-                @if ($quizQuestions->isNotEmpty())
-                    <div class="mt-3">
-                        <h5>Questions:</h5>
-                        <ol>
-                            @foreach($quizQuestions as $question)
-                                <li>
-                                    {{ $question->question }}
-                                    <ul style="list-style-type: circle; margin-top: 5px;">
-                                        @foreach (['option_1', 'option_2', 'option_3', 'option_4'] as $opt)
-                                            @if(!empty($question->$opt))
-                                                <li>{{ $question->$opt }}</li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                </li>
-                            @endforeach
-                        </ol>
+        {{-- Quiz Form --}}
+        <form id="quizForm" action="{{ route('Logical.Store') }}" method="POST">
+            @csrf
+
+            @foreach($quizzes as $index => $quiz)
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #60794e; color: white;">
+                    <div>
+                        <strong>Question #{{ $index + 1 }}:</strong> {{ $quiz->question ?? 'N/A' }}
                     </div>
-                @else
-                    <p>No questions available for this quiz.</p>
-                @endif            
-        </div>
-    @empty
-        <div class="alert alert-warning">
-            No quizzes available for this class.
-        </div>
-    @endforelse
+                    <div class="text-end" style="font-size: 0.9rem;">
+                        <span>Subject: <strong>{{ $quiz->subject_name ?? 'N/A' }}</strong></span><br>
+                        <span>Topic: <strong>{{ $quiz->topic_name ?? 'N/A' }}</strong></span>
+                    </div>
+                </div>
+                <div class="card-body" style="background-color: #f7eacc;">
+                    <input type="hidden" name="quiz_id[]" value="{{ $quiz->id }}">
+                    <input type="hidden" name="topic_id[]" value="{{ $quiz->topic_id }}">
+                    @foreach (['option_1', 'option_2', 'option_3', 'option_4'] as $optIndex => $field)
+                        @php $option = $quiz->$field; @endphp
+                        @if ($option)
+                            <div class="form-check mb-2">
+                                <input 
+                                    class="form-check-input" 
+                                    type="radio" 
+                                    name="answers[{{ $quiz->id }}]" 
+                                    id="q{{ $quiz->id }}_{{ $optIndex }}" 
+                                    value="{{ $option }}" 
+                                    required
+                                >
+                                <label class="form-check-label" for="q{{ $quiz->id }}_{{ $optIndex }}">
+                                    {{ $option }}
+                                </label>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+            @endforeach
+
+            <button type="submit" class="btn btn-success">Submit All Answers</button>
+        </form>
+    @endif
 </div>
 @endsection
