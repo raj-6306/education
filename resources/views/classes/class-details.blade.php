@@ -66,7 +66,7 @@
                                 {{ ucfirst($class_name) }} {{ $subject->name }} Updated Course
                             </h6>
                         </div>
-                
+                        @if($topic->topic_id)
                         <div class="card-footer bg-transparent border-0 text-center">
                             <a href="{{ route('topic.view', $topic->topic_id) }}"
                                class="btn w-100 fw-bold text-white"
@@ -74,6 +74,7 @@
                                 WATCH NOW
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>                
                 @endforeach
