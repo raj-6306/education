@@ -112,7 +112,7 @@
 									{{-- <a href="#" class="button primary large">Learn more</a> --}}
 									<br/><br/>
 								</div>
-								<img src="{{ url('assets/dummy/slider.jpg') }}" alt="">
+								<img src="{{ url('assets/dummy/slider.png') }}" alt="">
 							</li>
 							<li>
 								<div class="slide-caption">
@@ -121,7 +121,7 @@
 									{{-- <a href="#" class="button primary large">Learn more</a> --}}
 									<br/><br/>
 								</div>
-								<img src="{{ url('assets/dummy/slider1.jpg') }}" alt="" >
+								<img src="{{ url('assets/dummy/slider1.png') }}" alt="" >
 							</li>
 							<li>
 								<div class="slide-caption">
@@ -130,7 +130,7 @@
 									{{-- <a href="#" class="button primary large">Learn more</a> --}}
 									<br/><br/>
 								</div>
-								<img src="{{ url('assets/dummy/slider2.jpg') }}" alt="" >
+								<img src="{{ url('assets/dummy/slider2.png') }}" alt="" >
 							</li>
 						</ul> <!-- .slides -->
 					</div> <!-- .slider -->
