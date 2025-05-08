@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\LearningController;
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TestController;
@@ -72,6 +73,13 @@ Route::post('/certificate/download', [TestController::class, 'download'])->name(
 Route::get('/logical', [TestController::class, 'logical'])->name('logical');
 Route::get('/all-logical-reasoning/{id}', [TestController::class, 'showlogical'])->name('logical.details');
 Route::post('/logical-store', [TestController::class, 'LogicalStore'])->name('Logical.Store');
+Route::get('/mission', [MissionController::class, 'index'])->name('mission.index');
+Route::get('/mission-create', [MissionController::class, 'create'])->name('mission.create');
+Route::post('/mission-store', [MissionController::class, 'store'])->name('mission.store');
+Route::get('/mission/{id}/edit', [MissionController::class, 'edit'])->name('mission.edit');
+Route::post('/mission/{id}', [MissionController::class, 'update'])->name('mission.update');
+Route::delete('/mission/{id}', [MissionController::class, 'destroy'])->name('mission.destroy');
+Route::get('/mission-show', [MissionController::class, 'show'])->name('mission.show');
 
 
 

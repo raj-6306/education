@@ -107,33 +107,30 @@
 						<ul class="slides">
 							<li>
 								<div class="slide-caption">
-									<h2 class="slide-title">I Love to learn TheoremTrack! <br> Where Every Equation Finds Its Path.!</h2>
-									<p>You will discover where all this mistaken idea of denouncing pleasure and
-										praising pain came from, and I will explain the actual teachings of the great
-										explorer of the truth, the master-builder of human happiness</p>
-									<a href="#" class="button primary large">Learn more</a>
+									<h2 class="slide-title">TheoremTrack! <br> Where Every Equation Finds Its Path.!</h2>
+									<p>Whether you're a student aiming to master tough concepts or a parent looking to support your child’s progress, Theorem Track brings education to your fingertips—anytime, anywhere.</p>
+									{{-- <a href="#" class="button primary large">Learn more</a> --}}
+									<br/><br/>
 								</div>
 								<img src="{{ url('assets/dummy/slider.jpg') }}" alt="">
 							</li>
 							<li>
 								<div class="slide-caption">
-									<h2 class="slide-title">I Love to Read TheoremTrack! <br> Where Every Equation Finds Its Path.!</h2>
-									<p>You will discover where all this mistaken idea of denouncing pleasure and
-										praising pain came from, and I will explain the actual teachings of the great
-										explorer of the truth, the master-builder of human happiness</p>
-									<a href="#" class="button primary large">Learn more</a>
+									<h2 class="slide-title">TheoremTrack! <br> Where Every Equation Finds Its Path.!</h2>
+									<p>Whether you're a student aiming to master tough concepts or a parent looking to support your child’s progress, Theorem Track brings education to your fingertips—anytime, anywhere.</p>
+									{{-- <a href="#" class="button primary large">Learn more</a> --}}
+									<br/><br/>
 								</div>
-								<img src="{{ url('assets/dummy/slider1.jpg') }}" alt="">
+								<img src="{{ url('assets/dummy/slider1.jpg') }}" alt="" >
 							</li>
 							<li>
 								<div class="slide-caption">
-									<h2 class="slide-title">I Love to Watch TheoremTrack! <br> Where Every Equation Finds Its Path.!</h2>
-									<p>You will discover where all this mistaken idea of denouncing pleasure and
-										praising pain came from, and I will explain the actual teachings of the great
-										explorer of the truth, the master-builder of human happiness</p>
-									<a href="#" class="button primary large">Learn more</a>
+									<h2 class="slide-title">TheoremTrack! <br> Where Every Equation Finds Its Path.!</h2>
+									<p>Whether you're a student aiming to master tough concepts or a parent looking to support your child’s progress, Theorem Track brings education to your fingertips—anytime, anywhere.</p>
+									{{-- <a href="#" class="button primary large">Learn more</a> --}}
+									<br/><br/>
 								</div>
-								<img src="{{ url('assets/dummy/slider.jpg') }}" alt="">
+								<img src="{{ url('assets/dummy/slider2.jpg') }}" alt="" >
 							</li>
 						</ul> <!-- .slides -->
 					</div> <!-- .slider -->
@@ -225,7 +222,7 @@
 		<div class="fullwidth-block">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					{{-- <div class="col-md-6"> --}}
 						{{-- <div class="boxed-section request-form">
 							<h2 class="section-title text-center">Request information</h2>
 							<form action="#">
@@ -267,16 +264,16 @@
 								</div>
 							</form>
 						</div> <!-- .boxed-section .request-form --> --}}
-						<div class="boxed-section">
+						{{-- <div class="boxed-section">
 							<img src="{{ url('assets/dummy/img1.jpg') }}" class="img-fluid rounded" alt="Student Image" style="height: 300px;width:475px;">
 							<p class="mt-3">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 								Vestibulum in sapien sed enim egestas feugiat. 
 								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 							</p>
-						</div>
-					</div>
-					<div class="col-md-6">
+						</div> --}}
+					{{-- </div> --}}
+					<div class="col-md-12">
 						<div class="boxed-section best-students">
 							{{-- <h2 class="section-title  text-center">Our best students</h2> --}}
 							{{-- <ul class="best-students-grid">

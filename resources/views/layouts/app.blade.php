@@ -14,7 +14,7 @@
 
     .sidebar {
       width: 220px;
-      background: #60794e;
+      background: #cbe2e8;
       color: white;
       padding: 20px;
       height: 100vh;
@@ -40,7 +40,7 @@
     }
 
     .sidebar a:hover {
-      background: #283f18;
+      background: #cbe2e8;
     }
 
     .main-content {
@@ -66,18 +66,18 @@
 
   <div class="sidebar">
     @if(session('role')==0)
-    <h2>Dashboard</h2>
+    <h2>TheoremTrack</h2>
     <a href="{{ route('dashboard') }}">Dashboard</a>
     <a href="{{route('class.index')}}">Classes</a>
     <a href="{{route('learning.index')}}">Learning</a>
     <a href="{{ route('quiz.index') }}">Quizzes</a>
-    <a href="{{ route('test.index') }}">Mission</a>
+    <a href="{{ route('mission.index') }}">Mission</a>
     <a href="{{ route('logout') }}">Logout</a>
     @else
     <h2>TheoremTrack</h2>
       <a href="{{ route('dashboard') }}">Dashboard</a>
-      <a href="{{ route('test.index') }}">Mission</a>
-      <a href="{{ route('logical') }}">Logical Reasoning</a>
+      <a href="{{ route('mission.show') }}">Logical Reasoning</a>
+      <a href="{{ route('logical') }}">Quiz</a>
       <a href="{{ route('certificate') }}">Certificate</a>
       <a href="{{ route('logout') }}">Logout</a>
     @endif
