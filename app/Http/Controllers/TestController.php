@@ -116,6 +116,10 @@ class TestController extends Controller
     }
     if($requiredBadges==100){
         $path = public_path('assets/dummy/certificate.jpg');
+    }elseif($requiredBadges==200){
+        $path = public_path('assets/dummy/certificae2.jpg');
+    }elseif($requiredBadges==500){
+        $path = public_path('assets/dummy/crtificate3.jpg');
     }
     // $pdf = Pdf::loadView('certificates.certificate', [
     //     'name' => session('student_name'),

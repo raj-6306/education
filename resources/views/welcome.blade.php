@@ -278,8 +278,8 @@
 					</div>
 					<div class="col-md-6">
 						<div class="boxed-section best-students">
-							<h2 class="section-title  text-center">Our best students</h2>
-							<ul class="best-students-grid">
+							{{-- <h2 class="section-title  text-center">Our best students</h2> --}}
+							{{-- <ul class="best-students-grid">
 								<li class="student"><a href="#"><img src="{{ url('assets/dummy/img1.jpg') }}" alt="student 1"></a>
 								</li>
 								<li class="student"><a href="#"><img src="{{ url('assets/dummy/img2.jpg') }}" alt="student 2"></a>
@@ -297,7 +297,8 @@
 								<li class="student"><a href="#"><img src="{{ url('assets/dummy/img5.jpeg') }}" alt="student 5"></a>
 								</li>
 								<li class="student"><a href="#" class="more-student" style="height: 100px;">See more</a></li>
-							</ul>
+							</ul> --}}
+							<video src="{{ url('assets/video.mp4') }}" style="height: 100%;width:100%;" autoplay muted controls></video>
 						</div> <!-- .boxed-section .best-students -->
 					</div>
 				</div> <!-- .row -->

@@ -71,12 +71,12 @@
     <a href="{{route('class.index')}}">Classes</a>
     <a href="{{route('learning.index')}}">Learning</a>
     <a href="{{ route('quiz.index') }}">Quizzes</a>
-    <a href="{{ route('test.index') }}">Missions</a>
+    <a href="{{ route('test.index') }}">Mission</a>
     <a href="{{ route('logout') }}">Logout</a>
     @else
     <h2>TheoremTrack</h2>
       <a href="{{ route('dashboard') }}">Dashboard</a>
-      <a href="{{ route('test.index') }}">Missions</a>
+      <a href="{{ route('test.index') }}">Mission</a>
       <a href="{{ route('logical') }}">Logical Reasoning</a>
       <a href="{{ route('certificate') }}">Certificate</a>
       <a href="{{ route('logout') }}">Logout</a>

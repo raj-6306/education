@@ -18,8 +18,8 @@
         @php
             $certificates = [
                 ['badge' => 100, 'title' => 'Bronze Certificate'],
-                ['badge' => 1000, 'title' => 'Silver Certificate'],
-                ['badge' => 2000, 'title' => 'Gold Certificate'],
+                ['badge' => 200, 'title' => 'Silver Certificate'],
+                ['badge' => 500, 'title' => 'Gold Certificate'],
             ];
         @endphp
 
@@ -28,8 +28,13 @@
             <div class="card shadow mb-4">
                 <div class="card-body text-center">
                     <!-- Add Image Here -->
+                    @if($certificate['badge']==100)
                     <img src="{{ asset('assets/dummy/certificate.jpg') }}" alt="Certificate Image" class="img-fluid mb-3" style="max-width: 100%; height: auto;">
-                    
+                    @elseif($certificate['badge']=='200')
+                    <img src="{{ asset('assets/dummy/certificae2.jpg') }}" alt="Certificate Image" class="img-fluid mb-3" style="max-width: 100%; height: auto;">
+                    @elseif($certificate['badge']==500)
+                    <img src="{{ asset('assets/dummy/crtificate3.jpg') }}" alt="Certificate Image" class="img-fluid mb-3" style="max-width: 100%; height: auto;">
+                    @endif
                     <h5 class="card-title">{{ $certificate['title'] }}</h5>
                     <p>Requires {{ $certificate['badge'] }} badges</p>
                     
